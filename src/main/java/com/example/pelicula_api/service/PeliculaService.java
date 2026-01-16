@@ -11,25 +11,21 @@ import java.util.List;
 
         private final PeliculaRepository peliculaRepository;
 
-        public PeliculaService(PeliculaRepository peliculaRepository) throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public PeliculaService(PeliculaRepository peliculaRepository){
             this.peliculaRepository = peliculaRepository;
         }
-        public Pelicula buscarPorId(Long id) throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public Pelicula buscarPorId(Long id){
             return peliculaRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Película no encontrada"));
         }
 
-        public void eliminar(Long id) throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public void eliminar(Long id){
             if (!peliculaRepository.existsById(id)) {
                 throw new RuntimeException("No existe la película");
             }
             peliculaRepository.deleteById(id);
         }
-        public Pelicula guardar(Pelicula pelicula) throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public Pelicula guardar(Pelicula pelicula){
 
             if (pelicula.getAnioEstreno() != null && pelicula.getAnioEstreno() > 2026) {
                 throw new IllegalArgumentException("El año de estreno no puede ser futuro");
@@ -44,13 +40,11 @@ import java.util.List;
 
 
 
-        public List<Pelicula> listar() throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public List<Pelicula> listar(){
             return peliculaRepository.findAll();
         }
 
-        public Pelicula actualizar(Long id, Pelicula pelicula) throw new RecursoNoEncontradoException("Película no encontrada");
-{
+        public Pelicula actualizar(Long id, Pelicula pelicula){
         Pelicula existente = buscarPorId(id);
 
             existente.setTitulo(pelicula.getTitulo());

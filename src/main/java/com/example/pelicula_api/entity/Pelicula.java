@@ -70,11 +70,11 @@ public class Pelicula {
         this.anioEstreno = anioEstreno;
     }
 
-    public boolean isDisponible() {
+    public Boolean isDisponible() {
         return disponible;
     }
 
-    public void setDisponible(boolean disponible) {
+    public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
     }
 }
