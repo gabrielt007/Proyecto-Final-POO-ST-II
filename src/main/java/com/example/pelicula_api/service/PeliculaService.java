@@ -14,7 +14,17 @@ import java.util.List;
         public PeliculaService(PeliculaRepository peliculaRepository) {
             this.peliculaRepository = peliculaRepository;
         }
+        public Pelicula buscarPorId(Long id) {
+            return peliculaRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Película no encontrada"));
+        }
 
+        public void eliminar(Long id) {
+            if (!peliculaRepository.existsById(id)) {
+                throw new RuntimeException("No existe la película");
+            }
+            peliculaRepository.deleteById(id);
+        }
         public Pelicula guardar(Pelicula pelicula) {
 
             if (pelicula.getAnioEstreno() != null && pelicula.getAnioEstreno() > 2026) {
@@ -27,6 +37,7 @@ import java.util.List;
 
             return peliculaRepository.save(pelicula);
         }
+
 
 
         public List<Pelicula> listar() {

@@ -1,16 +1,45 @@
 package com.example.pelicula_api.controller;
 
+import com.example.pelicula_api.entity.Pelicula;
+import com.example.pelicula_api.service.PeliculaService;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
-@RequestMapping("/peliculas")
+@RequestMapping("/api/peliculas")
 public class PeliculaController {
 
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong 🏓 API viva y coleando";
+    private final PeliculaService peliculaService;
+
+    public PeliculaController(PeliculaService peliculaService) {
+        this.peliculaService = peliculaService;
     }
+
+    //LISTAR TODAS
+    @GetMapping
+    public List<Pelicula> listar() {
+        return peliculaService.listar();
+    }
+
+    //GUARDAR (VALIDACIONES ACTIVAS)
+    @PostMapping
+    public Pelicula guardar(@Valid @RequestBody Pelicula pelicula) {
+        return peliculaService.guardar(pelicula);
+    }
+
+    //BUSCAR POR ID
+    @GetMapping("/{id}")
+    public Pelicula buscarPorId(@PathVariable Long id) {
+        return peliculaService.buscarPorId(id);
+    }
+
+
+    //ELIMINAR
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id) {
+        peliculaService.eliminar(id);
+    }
+
 }
