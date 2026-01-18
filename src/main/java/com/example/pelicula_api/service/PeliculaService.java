@@ -1,6 +1,7 @@
 package com.example.pelicula_api.service;
 
 import com.example.pelicula_api.entity.Pelicula;
+import com.example.pelicula_api.exception.RecursoNoEncontradoException;
 import com.example.pelicula_api.repository.PeliculaRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +17,12 @@ import java.util.List;
         }
         public Pelicula buscarPorId(Long id){
             return peliculaRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Película no encontrada"));
+                    .orElseThrow(() -> new RecursoNoEncontradoException("Película no encontrada"));
         }
 
         public void eliminar(Long id){
             if (!peliculaRepository.existsById(id)) {
-                throw new RuntimeException("No existe la película");
+                throw new RecursoNoEncontradoException("No existe la película");
             }
             peliculaRepository.deleteById(id);
         }
