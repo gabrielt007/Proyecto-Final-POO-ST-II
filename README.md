@@ -6,6 +6,10 @@ Tecnologías utilizadas
 
 Java 17, Spring Boot, Spring Data JPA, Maven, Base de datos H2, Swagger UI, HTML y JavaScript
 
+CREDENCIALES DE USO PARA TODAS LAS PLATAFORMAS
+USER: bryan
+PASSWORD: 13092005
+
 Interfaz web de prueba:
 https://proyecto-final-poo-st-ii.onrender.com/index.html
 
