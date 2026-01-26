@@ -4,7 +4,7 @@ La API se encuentra desplegada y accesible en línea mediante la plataforma Rend
 
 Tecnologías utilizadas
 
-Java 17, Spring Boot, Spring Data JPA, Maven, Base de datos H2, Swagger UI, HTML y JavaScript
+Java 17, Spring Boot, Spring Data JPA, Maven, Base de datos postgress 16, Swagger UI, HTML y JavaScript
 
 CREDENCIALES DE USO PARA TODAS LAS PLATAFORMAS
 USER: bryan
