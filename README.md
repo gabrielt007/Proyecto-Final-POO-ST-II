@@ -11,7 +11,7 @@ USER: bryan
 PASSWORD: 13092005
 
 Interfaz web de prueba:
-https://proyecto-final-poo-st-ii.onrender.com/index.html
+https://proyecto-final-poo-st-ii.onrender.com/
 
 Este enlace muestra una interfaz web básica que permite interactuar con la API desde el navegador, facilitando la visualización y prueba de las operaciones CRUD sin necesidad de herramientas externas.
 
